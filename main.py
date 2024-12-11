@@ -218,7 +218,7 @@ if __name__ == "__main__":
         val_dataset = SentimentDataset(X_test.tolist(), y_test.tolist(), tokenizer, max_len=128)
 
         bert_model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
-        train_bert_model(train_dataset, val_dataset, bert_model, tokenizer, batch_size=16, epochs=1, device=torch.device("cuda" if torch.cuda.is_available() else "cpu"))
+        train_bert_model(train_dataset, val_dataset, bert_model, tokenizer, batch_size=16, epochs=5, device=torch.device("cuda" if torch.cuda.is_available() else "cpu"))
 
         # Test single prediction
         sample_text = "Oppenheimer is a stunning and thought-provoking masterpiece. The film dives deep into the psyche of one of the most influential scientists of the 20th century, portraying his struggles, triumphs, and moral dilemmas with incredible depth and emotion. The cinematography and performances are nothing short of brilliant, making it a must-watch for anyone interested in history, science, or humanity."
